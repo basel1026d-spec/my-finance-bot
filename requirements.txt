@@ -1,6 +1,5 @@
 streamlit
-yfinance
-pandas
+yfinance--upgradepandas
 numpy
 textblob
 newsapi-python
