@@ -23,9 +23,9 @@ class FinanceBot:
 
     def get_live_data(self, ticker): # تأكد إن كلمة ticker موجودة هون
         try:
-       # تأكد إن كلمة ticker مكتوبة صح هون كمان
-       data = yf.download(ticker, period="6mo", interval="1d")
-       return data
+           # تأكد إن كلمة ticker مكتوبة صح هون كمان
+           data = yf.download(ticker, period="6mo", interval="1d")
+           return data
        except Exception as e:
          st.error(f"خطأ في جلب البيانات: {e}")
         return None 
