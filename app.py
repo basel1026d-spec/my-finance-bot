@@ -21,13 +21,14 @@ class FinanceBot:
         except:
             self.newsapi = None
 
-    def get_live_data(self):
-        # جلب البيانات لآخر 7 أيام (ساعة بساعة)
-        data = yf.download(ticker, period="6mo", interval="1d")     
-        # تنظيف الأعمدة لتجنب مشاكل الإصدارات الجديدة
-        if isinstance(data.columns, pd.MultiIndex):
-            data.columns = data.columns.get_level_values(0)
-        return data
+    def get_live_data(self, ticker): # تأكد إن كلمة ticker موجودة هون
+        try:
+       # تأكد إن كلمة ticker مكتوبة صح هون كمان
+       data = yf.download(ticker, period="6mo", interval="1d")
+       return data
+       except Exception as e:
+         st.error(f"خطأ في جلب البيانات: {e}")
+        return None 
 
     def analyze_technical(self, data):
         # حساب المتوسط المتحرك لـ 20 ساعة
