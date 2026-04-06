@@ -23,8 +23,8 @@ class FinanceBot:
 
     def get_live_data(self):
         # جلب البيانات لآخر 7 أيام (ساعة بساعة)
-        data = yf.download(SYMBOL, period="7d", interval="1h")
-        # تنظيف الأعمدة لتجنب مشاكل الإصدارات الجديدة
+data = yf.download(ticker, period="6mo", interval="1d")     
+# تنظيف الأعمدة لتجنب مشاكل الإصدارات الجديدة
         if isinstance(data.columns, pd.MultiIndex):
             data.columns = data.columns.get_level_values(0)
         return data
